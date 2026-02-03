@@ -77,3 +77,35 @@ LIMIT 1;
 ### Question 7
 
 N/A
+
+## Module 2 Homework Supplementary Code
+
+### Question 1
+
+N/A
+
+### Question 2
+
+N/A
+
+### Question 3
+
+SELECT COUNT(*)
+FROM yellow_tripdata
+WHERE filename LIKE 'yellow_tripdata_2020%';
+
+### Question 4
+
+SELECT COUNT(*)
+FROM green_tripdata
+WHERE filename LIKE 'green_tripdata_2020%';
+
+### Question 5
+
+SELECT COUNT(*) 
+FROM yellow_tripdata 
+WHERE filename = 'yellow_tripdata_2021-03.csv';
+
+### Question 6
+
+N/A
