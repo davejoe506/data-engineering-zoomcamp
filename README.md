@@ -109,3 +109,58 @@ WHERE filename = 'yellow_tripdata_2021-03.csv';
 ### Question 6
 
 N/A
+
+## Module 3 Homework Supplementary Code
+
+### Question 1
+
+SELECT COUNT(*) 
+FROM `dtc-de-course-485815.zoomcamp.yellow_tripdata_2024_ext`;
+
+### Question 2
+
+SELECT COUNT(DISTINCT PULocationID)
+FROM `dtc-de-course-485815.zoomcamp.yellow_tripdata_2024_ext`;
+
+SELECT COUNT(DISTINCT PULocationID)
+FROM `dtc-de-course-485815.zoomcamp.yellow_tripdata_2024_non_partitioned`;
+
+### Question 3
+
+N/A
+
+### Question 4
+
+SELECT COUNT(*)
+FROM `dtc-de-course-485815.zoomcamp.yellow_tripdata_2024_non_partitioned`
+WHERE fare_amount = 0;
+
+### Question 5
+
+CREATE OR REPLACE TABLE `dtc-de-course-485815.zoomcamp.yellow_tripdata_2024_optimized`
+PARTITION BY DATE(tpep_dropoff_datetime)
+CLUSTER BY VendorID
+AS
+SELECT * FROM `dtc-de-course-485815.zoomcamp.yellow_tripdata_2024_non_partitioned`;
+
+### Question 6
+
+SELECT DISTINCT VendorID
+FROM `dtc-de-course-485815.zoomcamp.yellow_tripdata_2024_non_partitioned`
+WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15';
+
+SELECT DISTINCT VendorID
+FROM `dtc-de-course-485815.zoomcamp.yellow_tripdata_2024_optimized`
+WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15';
+
+### Question 7
+
+N/A
+
+### Question 8
+
+N/A
+
+### Question 9
+
+N/A
