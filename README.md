@@ -115,15 +115,15 @@ N/A
 ### Question 1
 
 SELECT COUNT(*) 
-FROM `dtc-de-course-485815.zoomcamp.yellow_tripdata_2024_ext`;
+FROM `zoomcamp.yellow_tripdata_2024_ext`;
 
 ### Question 2
 
 SELECT COUNT(DISTINCT PULocationID)
-FROM `dtc-de-course-485815.zoomcamp.yellow_tripdata_2024_ext`;
+FROM `zoomcamp.yellow_tripdata_2024_ext`;
 
 SELECT COUNT(DISTINCT PULocationID)
-FROM `dtc-de-course-485815.zoomcamp.yellow_tripdata_2024_non_partitioned`;
+FROM `zoomcamp.yellow_tripdata_2024_non_partitioned`;
 
 ### Question 3
 
@@ -132,25 +132,25 @@ N/A
 ### Question 4
 
 SELECT COUNT(*)
-FROM `dtc-de-course-485815.zoomcamp.yellow_tripdata_2024_non_partitioned`
+FROM `zoomcamp.yellow_tripdata_2024_non_partitioned`
 WHERE fare_amount = 0;
 
 ### Question 5
 
-CREATE OR REPLACE TABLE `dtc-de-course-485815.zoomcamp.yellow_tripdata_2024_optimized`
+CREATE OR REPLACE TABLE `zoomcamp.yellow_tripdata_2024_optimized`
 PARTITION BY DATE(tpep_dropoff_datetime)
 CLUSTER BY VendorID
 AS
-SELECT * FROM `dtc-de-course-485815.zoomcamp.yellow_tripdata_2024_non_partitioned`;
+SELECT * FROM `zoomcamp.yellow_tripdata_2024_non_partitioned`;
 
 ### Question 6
 
 SELECT DISTINCT VendorID
-FROM `dtc-de-course-485815.zoomcamp.yellow_tripdata_2024_non_partitioned`
+FROM `zoomcamp.yellow_tripdata_2024_non_partitioned`
 WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15';
 
 SELECT DISTINCT VendorID
-FROM `dtc-de-course-485815.zoomcamp.yellow_tripdata_2024_optimized`
+FROM `zoomcamp.yellow_tripdata_2024_optimized`
 WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15';
 
 ### Question 7
@@ -164,3 +164,37 @@ N/A
 ### Question 9
 
 N/A
+
+## Module 4 Homework Supplementary Code
+
+### Question 1
+
+N/A
+
+### Question 2
+
+N/A
+
+### Question 3
+
+SELECT COUNT(*) 
+FROM `zoomcamp.fct_monthly_zone_revenue`;
+
+### Question 4
+
+SELECT pickup_zone, SUM(revenue_monthly_total_amount ) AS revenue_total_amount  
+FROM zoomcamp.fct_monthly_zone_revenue 
+WHERE revenue_month >= '2020-01-01' AND revenue_month < '2021-01-01' AND service_type = 'Green' 
+GROUP BY pickup_zone 
+ORDER BY revenue_total_amount DESC;
+
+### Question 5
+
+SELECT SUM(total_monthly_trips ) AS total_trips  
+FROM zoomcamp.fct_monthly_zone_revenue 
+WHERE revenue_month >= '2019-10-01' AND revenue_month < '2019-11-01' AND service_type = 'Green';
+
+### Question 6
+
+SELECT COUNT(*) 
+FROM `zoomcamp.stg_fhv_tripdata`;
