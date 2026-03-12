@@ -198,3 +198,67 @@ WHERE revenue_month >= '2019-10-01' AND revenue_month < '2019-11-01' AND service
 
 SELECT COUNT(*) 
 FROM `zoomcamp.stg_fhv_tripdata`;
+
+## Module 5 Homework Supplementary Code
+
+### Question 1
+
+N/A
+
+### Question 2
+
+N/A
+
+### Question 3
+
+N/A
+
+### Question 4
+
+N/A
+
+### Question 5
+
+N/A
+
+### Question 6
+
+N/A
+
+### Question 7
+
+N/A
+
+## Module 6 Homework Supplementary Code
+
+### Question 1
+
+N/A
+
+### Question 2
+
+N/A
+
+### Question 3
+
+SELECT 
+    COUNT(1) AS total_trips
+FROM 
+    `zoomcamp.yellow_tripdata_2025_11`
+WHERE 
+    DATE(tpep_pickup_datetime) = '2025-11-15';
+
+### Question 4
+
+SELECT 
+    MAX(TIMESTAMP_DIFF(tpep_dropoff_datetime, tpep_pickup_datetime, SECOND) / 3600) AS longest_trip_hours
+FROM 
+    `zoomcamp.yellow_tripdata_2025_11`;
+
+### Question 5
+
+N/A
+
+### Question 6
+
+N/A
