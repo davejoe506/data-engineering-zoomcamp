@@ -262,3 +262,49 @@ N/A
 ### Question 6
 
 N/A
+
+## Module 7 Homework Supplementary Code
+
+### Question 1
+
+N/A
+
+### Question 2
+
+N/A
+
+### Question 3
+
+N/A
+
+### Question 4
+
+N/A
+
+### Question 5
+
+CREATE TABLE green_trips_sessions (
+    window_start TIMESTAMP,
+    window_end TIMESTAMP,
+    PULocationID INT,
+    num_trips BIGINT,
+    PRIMARY KEY (window_start, window_end, PULocationID)
+);
+
+SELECT PULocationID, num_trips, window_start, window_end
+FROM green_trips_sessions
+ORDER BY num_trips DESC
+LIMIT 5;
+
+### Question 6
+
+CREATE TABLE green_trips_tip_hourly (
+    window_start TIMESTAMP,
+    total_tips DOUBLE PRECISION,
+    PRIMARY KEY (window_start)
+);
+
+SELECT window_start, total_tips 
+FROM green_trips_tip_hourly 
+ORDER BY total_tips DESC 
+LIMIT 5;
